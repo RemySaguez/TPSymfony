@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Activités{% endblock %}
+
+{% block body %}
+    <h1>Liste des Activités</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Événement</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activite in activites %}
+                <tr>
+                    <td>{{ activite.id }}</td>
+                    <td>{{ activite.nom }}</td>
+                    <td>{{ activite.description }}</td>
+                    <td>{{ activite.evenement.nom }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

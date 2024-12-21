@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    <h1>Profile</h1>
+
+    {{ form_start(profileForm) }}
+        {{ form_widget(profileForm) }}
+        <button class="btn">Update Profile</button>
+    {{ form_end(profileForm) }}
+
+    <form method="post" action="{{ path('user_profile_delete') }}" onsubmit="return confirm('Are you sure you want to delete your account?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ app.user.id) }}">
+        <button class="btn btn-danger">Delete Account</button>
+    </form>
+{% endblock %}
